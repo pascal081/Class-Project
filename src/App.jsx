@@ -1,4 +1,7 @@
 import React from 'react'
+import background from "./assets/background.jpeg";
+import fit from "./assets/images.jfif";
+
 
 const App = () => {
   return (
@@ -50,9 +53,7 @@ const App = () => {
       </div>
       <div className="about-image">
         <img
-          src="./WhatsApp Image 2026-08-03 at 11.30.43.jpeg"
-          alt="student learning"
-        />
+          src={background}alt="student learning"/>
       </div>
     </section>
     {/* <!-- TESTIMONY --> */}
@@ -61,7 +62,7 @@ const App = () => {
         <h2>Feedback From Our Student</h2>
         <div className="testimonial-container">
             <div className="card">
-                <img src="./images.jfif" alt="studend Testimonies"/>
+                <img src={fit} alt="studend Testimonies"/>
                 <h3>Oluchi Iwueze</h3>
                 <p>This Academy completely changed my career. i learnt how to design from this program</p>
             </div>

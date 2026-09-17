@@ -33,7 +33,7 @@
   .hero {
     height: 100vh;
     width: 100%;
-    background-image: url(./WhatsApp\ Image\ 2026-08-03\ at\ 11.30.43.jpeg);
+    background-image: url("./assets/background.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
