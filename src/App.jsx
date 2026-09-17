@@ -124,6 +124,7 @@ const App = () => {
            <div className="copyright">
             <p>&copy; 2026 Our Digital Skills Academy. All Right Reserved</p>
            </div>
+           {/* // */}
         </footer>
         
 
