@@ -1,6 +1,8 @@
 import React from 'react'
 import background from "./assets/background.jpeg";
-import fit from "./assets/images.jfif";
+import fit from "./assets/testy.jfif";
+import ball from "./assets/test.jfif";
+import foot from "./assets/testimonial.jfif";
 
 
 const App = () => {
@@ -67,12 +69,12 @@ const App = () => {
                 <p>This Academy completely changed my career. i learnt how to design from this program</p>
             </div>
             <div className="card">
-                <img src="./images (2).jfif" alt="studend Testimonies"/>
+                <img src={ball} alt="studend Testimonies"/>
                 <h3>Oluchi Iwueze</h3>
                 <p>head the spin me and am confused at first but later it started becoming so clearer thanks to the the program</p>
             </div>
             <div className="card">
-                <img src="./images (1).jfif" alt="studend Testimonies"/>
+                <img src={foot} alt="studend Testimonies"/>
                 <h3>Oluchi Iwueze</h3>
                 <p>This program helped me to become confident in my design</p>
             </div>
