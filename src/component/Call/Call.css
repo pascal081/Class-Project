@@ -1,0 +1,37 @@
+/* CALL TO ACTION */
+.cta{
+ padding: 80px 10%; 
+ background-color: #007bff;
+ text-align: center;
+ color: white;
+}
+/* CONTENT */
+.cta-content{
+  max-width: 700px;
+  margin: auto;
+}
+.cta-content h2{
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.cta-content p{
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+/* BUTTON */
+.cta-content .cta-button{
+  display: inline-block;
+  background-color: white;
+  color: #ff6600;
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+/* HOVER */
+.cta-content .cta-button:hover{
+  background-color: #222;
+  color: #fff;
+}
