@@ -4,7 +4,7 @@
     background-color: black;
     height: 7vh;
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
   }
   .nav-link-text {
     margin-top: auto;
