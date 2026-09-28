@@ -21,7 +21,6 @@ const ContactUsPage = () => {
         <h2 className="contact-subtitle">Response Window</h2>
         <p className="contact-text">I review all direct inquiries and technical collaboration project invites within 12 to 24 hours.</p>
 
-        {/* Link pointing to your Services route path */}
         <Link to="/Services" className="services-button">
           View My Services
         </Link>

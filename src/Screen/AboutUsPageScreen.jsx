@@ -4,8 +4,8 @@ import "./AboutUsPageScreen.css";
 
 const AboutUsPageScreen = () => {
   return (
-    /* The fresh new unique className applied here wraps the page elements perfectly */
-    <div className="portfolio-about-view">
+
+<div className="portfolio-about-view">
       <div className="about-content-box">
         
         <h1 className="about-title">About Me</h1>
