@@ -1,0 +1,58 @@
+/* Unique container class name to keep styles away from your hero section */
+.portfolio-contact-view {
+  background-color: #121212; /* Matching simple solid dark background */
+  width: 100%;
+  min-height: 100vh;         /* Stretches full-screen height */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 60px 40px;
+}
+
+/* Inner box to center content text layouts */
+.portfolio-contact-view .contact-content-box {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;          
+}
+
+/* Main Heading  */
+.portfolio-contact-view .contact-title {
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  color: #ffffff;          
+  margin-top: 0;
+  margin-bottom: 24px;
+  border-bottom: 3px solid #6366f1; 
+  padding-bottom: 12px;
+}
+
+/* Subheadings (Arial - 26px) */
+.portfolio-contact-view .contact-subtitle {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  color: #818cf8;            
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+/* Body Paragraphs */
+.portfolio-contact-view .contact-text {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  margin-bottom: 16px;
+  color: #cbd5e1;           
+}
+
+/*  Link Button pointing to Services */
+.portfolio-contact-view .services-button {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #6366f1;
+  padding: 12px 28px;
+  margin-top: 24px;
+  text-decoration: none;
+  border-radius: 6px;
+}

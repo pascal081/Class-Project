@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Footer.css";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Footer = () => {
   return (
@@ -16,10 +17,11 @@ const Footer = () => {
               <div className="footer-box">
                 <h3>Quick Links</h3>
 
-                <a href="">HOME</a>
-                <a href="">About</a>
-                <a href="">Courses</a>
-                <a href="">Contact</a>
+                {/* Updated to clean, working internal routing links */}
+                <Link to="/">HOME</Link>
+                <Link to="/About-us">About</Link>
+                <Link to="/Services">Services</Link>
+                <Link to="/contact-us">Contact</Link>
 
               </div>
 
@@ -38,8 +40,6 @@ const Footer = () => {
            </div>
            {/* // */}
         </footer>
-        
-
     </div>
   )
 }

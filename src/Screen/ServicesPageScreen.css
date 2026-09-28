@@ -1,0 +1,58 @@
+/*  container */
+.portfolio-services-view {
+  background-color: #121212;  
+  width: 100%;
+  min-height: 100vh;        
+  box-sizing: border-box;
+  margin: 0;
+  padding: 60px 40px;
+}
+
+/* Inner box to center content text layouts */
+.portfolio-services-view .services-content-box {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;         
+}
+
+/* Main Heading  */
+.portfolio-services-view .services-title {
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  color: #ffffff;            
+  margin-top: 0;
+  margin-bottom: 24px;
+  border-bottom: 3px solid #6366f1; 
+  padding-bottom: 12px;
+}
+
+/* Subheadings  */
+.portfolio-services-view .services-subtitle {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  color: #818cf8;          
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+/* Body Paragraphs  */
+.portfolio-services-view .services-text {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  margin-bottom: 16px;
+  color: #cbd5e1;            
+}
+
+/*  Link Button pointing back to Home */
+.portfolio-services-view .home-button {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #6366f1;
+  padding: 12px 28px;
+  margin-top: 24px;
+  text-decoration: none;
+  border-radius: 6px;
+}

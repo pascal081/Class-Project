@@ -1,0 +1,58 @@
+/* container  */
+.portfolio-about-view {
+  background-color: #121212; /* Simple solid dark background color */
+  width: 100%;
+  min-height: 100vh;         /* Stretches full-screen height */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 60px 40px;
+}
+
+/*  content text layouts */
+.portfolio-about-view .about-content-box {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;          
+}
+
+/* Main Heading  */
+.portfolio-about-view .about-title {
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  color: #ffffff;          
+  margin-top: 0;
+  margin-bottom: 24px;
+  border-bottom: 3px solid #6366f1; 
+  padding-bottom: 12px;
+}
+
+/* Subheadings  */
+.portfolio-about-view .about-subtitle {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  color: #818cf8;            
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+/*  Paragraphs */
+.portfolio-about-view .about-text {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  margin-bottom: 16px;
+  color: #cbd5e1;            
+}
+
+/* Contact Button */
+.portfolio-about-view .about-button {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #6366f1;
+  padding: 12px 28px;
+  margin-top: 12px;
+  text-decoration: none;
+  border-radius: 6px;
+}
