@@ -1,17 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Box, 
   Button, 
   Checkbox, 
   CssBaseline, 
   FormControlLabel, 
-  Grid,    
+  Grid,  
   TextField, 
   Typography 
 } from '@mui/material';
-  import {Link} from "react-router-dom"
+import { Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';
+ 
 
-export default function SharpLoginDesign() {
+export default function LoginScreen () {
+  const navigate = useNavigate();
+  const[email, setEmail] = useState("")
+ const [password, setPassword] = useState("") 
+//  message state for error handling 
+  const [message, setMessage] = useState("")
+  const [error, setError] = useState(false);
+  // loading state
+   const [loading, setLoading] = useState(false);
+  //  remember me state
+    const [rememberMe, setRememberMe] = useState(false);
+    // handle form submission
+      const handleLoginSubmit = async (e) => {
+        try{
+          e.preventDefault();
+          // set loading state to true
+          setLoading(true);
+          // clear message and error state
+          setMessage("");
+          setError(false);
+
+          // frontend validation
+      if (!email || !password) {
+        setMessage("Please fill in all the fields");
+        setError(true);
+        setLoading(false);
+        return;
+      }
+      // Login Payload
+      const payload = {
+        email,
+        password,
+      };
+      console.log(payload);
+      // send login request to backend
+  let data = await axios.post('https://students-learning-api.onrender.com/api/auth/login',
+  payload,);
+  console.log(data);
+  
+  setLoading(false);
+  setMessage("Login successful!, Welcome Back")
+  // save User data to Local storage
+  localStorage.setItem("user", JSON.stringify(data.data))
+  // clear form fields
+  setEmail("");
+  setPassword("");
+  // login successful, redirect to home
+
+  navigate("/");
+
+        } catch (error) {
+          console.log(error);
+          // handle error response from backend
+          if (error.response && error.response.data) {
+            setMessage(error.response.data.message);
+          } else {
+            setMessage("An error occured. Please try again.");
+          }
+          setError(true);
+          setLoading(false);
+        }   
+      };
+     
+
   return (
     <Grid container component="main" sx={{ height: '100vh' }}>
       <CssBaseline />
@@ -39,7 +104,7 @@ export default function SharpLoginDesign() {
           THE ARCHITECT.
         </Typography>
         <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)', letterSpacing: '0.05em' }}>
-          © 2026 INTERNAL NETWORK SYSTEM.
+          ©️ 2026 INTERNAL NETWORK SYSTEM.
         </Typography>
       </Grid>
 
@@ -64,8 +129,28 @@ export default function SharpLoginDesign() {
           <Typography variant="body2" color="text.secondary" sx={{ mb: 4 }}>
             Please enter your credentials to access your terminal.
           </Typography>
+          {/* success and error messages */}
+          {message && (
+            <Typography
+            variant='body2'
+            color='success'
+            sx={{ mb: 2}}
+            >
+              {message}
+            </Typography>
+          )}
+          {error && (
+            <Typography
+            variant='body2'
+            color='error'
+            sx={{ mb: 2}}
+            >
+              {error}
+            </Typography>
+          )}
 
-          <Box component="form" noValidate>
+           
+          <Box component="form" onSubmit={handleLoginSubmit} noValidate>
             <TextField
               margin="normal"
               required
@@ -73,6 +158,9 @@ export default function SharpLoginDesign() {
               id="email"
               label="EMAIL ADDRESS"
               name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               autoComplete="email"
               autoFocus
               InputProps={{ sx: { borderRadius: 0 } }}
@@ -93,6 +181,8 @@ export default function SharpLoginDesign() {
               name="password"
               label="PASSWORD"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               id="password"
               autoComplete="current-password"
               InputProps={{ sx: { borderRadius: 0 } }}
@@ -137,12 +227,12 @@ export default function SharpLoginDesign() {
                 },
               }}
             >
-              ENTER SYSTEM
+             {loading ? "LOADING..." : "ENTER SYSTEM"}
             </Button>
 
             <Typography variant="body2" align="center" color="text.secondary" sx={{ fontSize: '0.75rem' }}>
               {'DON\'T HAVE AN ACCOUNT? '}
-              <Link to= "/Register" color="inherit" sx={{ fontWeight: 700 }}>
+              <Link to='/RegisterScreen' color="inherit" sx={{ fontWeight: 700 }}>
                 REGISTER
               </Link>
             </Typography>
