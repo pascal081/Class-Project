@@ -20,6 +20,8 @@ const pages = [
   { name: 'About Us', path: '/AboutUs' },
   { name: 'Services', path: '/Services' },
   { name: 'Contact us', path: '/ContactUs' },
+  { name: 'Login', path: '/Login' },
+  { name: 'Registration', path: '/Registration' },
   
 
 ];

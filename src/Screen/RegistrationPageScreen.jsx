@@ -309,7 +309,7 @@ const handleSubmit = async (event) => {
               sx={{ fontSize: "0.75rem" }}
             >
               ALREADY HAVE AN ACCOUNT?{" "}
-              <Link to="/LoginScreen" color="inherit" sx={{ fontWeight: 700 }}>
+              <Link to="/Login" color="inherit" sx={{ fontWeight: 700 }}>
                 SIGN IN
               </Link>
             </Typography>

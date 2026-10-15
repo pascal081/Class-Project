@@ -1,37 +1,47 @@
-import React from 'react'
-import "./Testimonial.css";
-import fit from "../../assets/testy.jfif";
-import ball from "../../assets/test.jfif";
-import foot from "../../assets/testimonial.jfif";
+import { useState, useEffect } from 'react'; 
+import './Testimonial.css'; 
+import fit from './../../assets/hero.png';
+ 
+import axios from 'axios'; 
 
-const Testimony = () => {
-  return (
-    <div>
-       {/* <!-- TESTIMONY --> */}
-      <section className="testimonials">
-        <h4>TESTIMONIES</h4>
-        <h2>Feedback From Our Student</h2>
-        <div className="testimonial-container">
-            <div className="card">
-                <img src={fit} alt="studend Testimonies"/>
-                <h3>Oluchi Iwueze</h3>
-                <p>This Academy completely changed my career. i learnt how to design from this program</p>
-            </div>
-            <div className="card">
-                <img src={ball} alt="studend Testimonies"/>
-                <h3>Oluchi Iwueze</h3>
-                <p>head the spin me and am confused at first but later it started becoming so clearer thanks to the the program</p>
-            </div>
-            <div className="card">
-                <img src={foot} alt="studend Testimonies"/>
-                <h3>Oluchi Iwueze</h3>
-                <p>This program helped me to become confident in my design</p>
-            </div>
-        </div>
+const Testimonial = () => { 
+  const [users, setUsers] = useState([]); 
 
-      </section>
-    </div>
-  )
-}
+  const getUsers = async () => { 
+    try { 
+      const response = await axios.get("https://students-learning-api.onrender.com/api/auth"); 
+      setUsers(response.data); 
+      console.log(response.data); 
+    } catch (error) { 
+      console.log(error); 
+    } 
+  }; 
 
-export default Testimony
+  useEffect(() => { 
+    getUsers(); 
+  }, []); 
+
+  return ( 
+    <div> 
+      {/* <!-- TESTIMONY SECTION --> */} 
+      <section className="Testimonials"> 
+        <h1>Testimonials</h1> 
+        <h2><i>Feedback from our Students</i></h2> 
+        
+        <div className="testimonial-container"> 
+          {users.map((user) => ( 
+            <div className="card" key={user.id}> 
+              <img src={fit} alt="user avatar" /> 
+              <h3>{user.firstName} {user.lastName}</h3> 
+              <p>{user.email}</p> 
+               <p>{user.phoneNumber}</p>
+              <p>Address: {user.address}</p> 
+            </div> 
+          ))} 
+        </div> 
+      </section> 
+    </div> 
+  ); 
+}; 
+
+export default Testimonial;
