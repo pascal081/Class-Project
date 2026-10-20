@@ -1,47 +1,84 @@
-import { useState, useEffect } from 'react'; 
-import './Testimonial.css'; 
-import fit from './../../assets/hero.png';
- 
-import axios from 'axios'; 
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import cardimg from "../../assets/testy.jfif";
+import "./Testimonial.css";
 
-const Testimonial = () => { 
-  const [users, setUsers] = useState([]); 
+const Testimonial = () => {
+ const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const getUsers = async () => { 
-    try { 
-      const response = await axios.get("https://students-learning-api.onrender.com/api/auth"); 
-      setUsers(response.data); 
-      console.log(response.data); 
-    } catch (error) { 
-      console.log(error); 
-    } 
-  }; 
+  const navigate = useNavigate();
 
-  useEffect(() => { 
-    getUsers(); 
-  }, []); 
+  const getUsers = async () => {
+    try {
+      const response = await axios.get(
+        "https://students-learning-api.onrender.com/api/auth"
+      );
 
-  return ( 
-    <div> 
-      {/* <!-- TESTIMONY SECTION --> */} 
-      <section className="Testimonials"> 
-        <h1>Testimonials</h1> 
-        <h2><i>Feedback from our Students</i></h2> 
-        
-        <div className="testimonial-container"> 
-          {users.map((user) => ( 
-            <div className="card" key={user.id}> 
-              <img src={fit} alt="user avatar" /> 
-              <h3>{user.firstName} {user.lastName}</h3> 
-              <p>{user.email}</p> 
-               <p>{user.phoneNumber}</p>
-              <p>Address: {user.address}</p> 
-            </div> 
-          ))} 
-        </div> 
-      </section> 
-    </div> 
-  ); 
-}; 
+      setUsers(
+        Array.isArray(response.data)
+          ? response.data
+          : response.data.users || response.data.data || []
+      );
+    } catch (error) {
+      console.log(error);
+      setError("Unable to load users. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-export default Testimonial;
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  return (
+    <div>
+      <section className="testimonials">
+        <h4>TESTIMONIES</h4>
+        <h2>Feedback From Our Students</h2>
+
+        {loading && <p>Loading users...</p>}
+        {error && <p role="alert">{error}</p>}
+
+        {!loading && !error && users.length === 0 && (
+          <p>No users found.</p>
+        )}
+
+        <div className="Testimonial-container">
+          {users.slice (0,4) .map((user) => (
+            <div className="card" key={user._id || user.id}>
+              <img
+                src={cardimg}
+                alt={`${user.firstName || "User"} profile`}
+              />
+
+              <h3>
+                {user.firstName} {user.lastName}
+              </h3>
+
+              <p>Email: {user.email}</p>
+              <p>Address: {user.address || "Not provided"}</p>
+
+              <button
+                className="details-btn"
+                onClick={() =>
+                  navigate(`/users/${user._id || user.id}`)
+
+                }
+              >
+                View Details
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+  
+
+};
+
+export default Testimonial

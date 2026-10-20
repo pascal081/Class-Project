@@ -8,6 +8,7 @@ import ServicesPageScreen from "./Screen/ServicesPageScreen";
 import Footer from "./component/Footer/Footer"
 import LoginPageScreen from "./Screen/LoginPageScreen" 
 import RegistrationPageScreen from "./Screen/RegistrationPageScreen" 
+import UserdetailsScreen from "./Screen/UserdetailsScreen"
 
 
 
@@ -24,7 +25,7 @@ const App = () => (
       <Route path="/Login" element={<LoginPageScreen />} />
       <Route path="/Registration" element={<RegistrationPageScreen />} />
       <Route path="/Home" element={<LandingPageScreen />} />
-      
+      <Route path="/users/:id" element={<UserdetailsScreen />} />{" "}
     </Routes>
 
 
