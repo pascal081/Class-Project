@@ -66,8 +66,8 @@ const handleSubmit = async (event) => {
       console.log(payload);
       // send data to backend API
       const res = await axios.post(
-        "https://students-learning-api.onrender.com/api/auth",
-        payload,
+        `${import.meta.env.VITE_BASE_URL}/api/auth`,
+        payload
       );
       console.log(res);
       //success message
@@ -185,7 +185,7 @@ const handleSubmit = async (event) => {
             color= "success.main"
             sx={{ mb: 2, fontWeight: 700}}
             >
-             ee{messag}   
+             {message}   
             </Typography>
          )}
          {/* error message */}

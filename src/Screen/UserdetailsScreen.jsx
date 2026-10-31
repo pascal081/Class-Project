@@ -37,7 +37,7 @@ import {
   Phone,
 } from "@mui/icons-material";
 
-const API_URL = "https://students-learning-api.onrender.com/api/auth";
+const API_URL =import.meta.env.VITE_BASE_URL;
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -68,7 +68,7 @@ const UserDetails = () => {
         setError("");
         setUser(null);
 
-        const response = await axios.get(`${API_URL}/${id}`);
+        const response = await axios.get(`${API_URL}/api/auth/${id}`);
 
         const data = response?.data;
         const foundUser = data.user ?? data.data?.user ?? data.data ?? data;
@@ -121,7 +121,7 @@ const UserDetails = () => {
       setError("");
       setMessage("");
 
-      const response = await axios.put(`${API_URL}/update/${id}`, form);
+      const response = await axios.put(`${API_URL}/api/auth/update/${id}`, form);
 
       const data = response.data;
       const updatedUser = data.user ?? data.data?.user ?? data.data;
@@ -152,7 +152,7 @@ const UserDetails = () => {
       setDeleting(true);
       setError("");
 
-      let deleteUser = await axios.delete(`${API_URL}/delete/${id}`);
+      let deleteUser = await axios.delete(`${API_URL}/api/auth/delete/${id}`);
       console.log(deleteUser)
 
       setDeleteDialog(false);

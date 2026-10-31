@@ -48,8 +48,7 @@ export default function LoginScreen () {
       };
       console.log(payload);
       // send login request to backend
-  let data = await axios.post('https://students-learning-api.onrender.com/api/auth/login',
-  payload,);
+  let data = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/login`, payload);
   console.log(data);
   
   setLoading(false);
